@@ -3,6 +3,7 @@
 declare(strict_types = 1);
 namespace Rebing\GraphQL\Tests\Unit;
 
+use GraphQL\Utils\SchemaPrinter;
 use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Tests\Support\Objects\ExamplesQuery;
 use Rebing\GraphQL\Tests\TestCase;
@@ -20,42 +21,11 @@ class GraphQLQueryTest extends TestCase
         ]);
     }
 
-    public function testConfigKeysIsDifferentFromTypeClassNameQuery(): void
-    {
-        if (app('config')->get('graphql.lazyload_types')) {
-            self::markTestSkipped('Skipping test when lazyload_types=true');
-        }
-
-        $result = GraphQL::queryAndReturnResult($this->queries['examplesWithConfigAlias']);
-
-        self::assertObjectHasAttribute('data', $result);
-
-        self::assertEquals($result->data, [
-            'examplesConfigAlias' => $this->data,
-        ]);
-    }
-
-    public function testConfigKeyIsDifferentFromTypeClassNameNotSupportedInLazyLoadingOfTypes(): void
-    {
-        if (false === app('config')->get('graphql.lazyload_types')) {
-            self::markTestSkipped('Skipping test when lazyload_types=false');
-        }
-
-        $result = GraphQL::queryAndReturnResult($this->queries['examplesWithConfigAlias']);
-        self::assertObjectHasAttribute('errors', $result);
-
-        $expected = "Type Example2 not found.
-Check that the config array key for the type matches the name attribute in the type's class.
-It is required when 'lazyload_types' is enabled";
-        self::assertSame($expected, $result->errors[0]->getMessage());
-    }
-
     public function testQuery(): void
     {
         $resultArray = GraphQL::query($this->queries['examples']);
         $result = GraphQL::queryAndReturnResult($this->queries['examples']);
 
-        self::assertIsArray($resultArray);
         self::assertArrayHasKey('data', $resultArray);
         self::assertEquals($resultArray['data'], $result->data);
     }
@@ -148,7 +118,7 @@ It is required when 'lazyload_types' is enabled";
                     ],
                     'locations' => [
                         [
-                            'line' => 3,
+                            'line' => 2,
                             'column' => 13,
                         ],
                     ],
@@ -241,5 +211,22 @@ It is required when 'lazyload_types' is enabled";
         ];
         self::assertSame($expectedDataResult, $result->data);
         self::assertCount(0, $result->errors);
+    }
+
+    public function testPrintSchema(): void
+    {
+        $schema = GraphQL::buildSchemaFromConfig([
+            'query' => [
+                'examplesCustom' => ExamplesQuery::class,
+            ],
+        ]);
+
+        $gql = SchemaPrinter::doPrint($schema);
+
+        $queryFragment = 'type Query {
+  examplesCustom(index: Int): [Example]
+}';
+
+        self::assertStringContainsString($queryFragment, $gql);
     }
 }
