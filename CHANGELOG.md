@@ -1,9 +1,16 @@
 CHANGELOG
 =========
 
-[Next release](https://github.com/rebing/graphql-laravel/compare/8.6.0...master)
+[Next release](https://github.com/rebing/graphql-laravel/compare/9.1.0...master)
 --------------
 
+2023-08-06, 9.1.0
+-----------------
+## Fixed
+- fix schema validation - resolve not allowed in input fields [\#1078 / crissi](https://github.com/rebing/graphql-laravel/pull/1078)
+
+2023-06-25, 9.0.0
+-----------------
 ## Breaking changes
 ### Added
 - Upgrade to graphql-php 15 [\#953 / mfn](https://github.com/rebing/graphql-laravel/pull/953)\
@@ -46,13 +53,20 @@ CHANGELOG
   name have to match.
 - Remove integrated GraphiQL support in favour of https://github.com/mll-lab/laravel-graphiql [\#986 / mfn](https://github.com/rebing/graphql-laravel/pull/986)
 - Laravel 6 is no longer supported [\#967 / mfn](https://github.com/rebing/graphql-laravel/pull/967)
+- Laravel 8 is no longer supported [\#1049 / mfn](https://github.com/rebing/graphql-laravel/pull/1049)
 
 ## Changed
 - The type resolver is now able to resolve the top level types 'Query',
-  'Mutation' and 'Subscription'
+  'Mutation' and 'Subscription'\
+  If you have an existing query/mutation/type named like this, you need to
+  rename it.
 - Return types were added to all methods of the commands [\#1005 / sforward](https://github.com/rebing/graphql-laravel/pull/1005)
 - Upgrade to laragraph/utils v2 [\#1032 / mfn](https://github.com/rebing/graphql-laravel/pull/1032)
-- The `Pagination` and `SimplePagination` helper types no enforce `nonNull` on their data types
+- The `Pagination` and `SimplePagination` helper types now enforce `nonNull` on their data types
+- The test suite now also runs with `--prefer-lowest` [\#1055 / mfn](https://github.com/rebing/graphql-laravel/pull/1055)\
+  This uncovered a few issues with `laragraph/utils` and `webonyx/graphql-php`
+  and thus their minimum version had to be slightly bumped to `2.0.1` and
+  `15.0.3` respectively.
 
 ### Removed
 - Remove unused publish command [\#1004 / sforward](https://github.com/rebing/graphql-laravel/pull/1004)

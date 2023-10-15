@@ -6,7 +6,7 @@
 [![Downloads](https://img.shields.io/packagist/dt/rebing/graphql-laravel.svg?style=flat-square)](https://packagist.org/packages/rebing/graphql-laravel)
 [![Get on Slack](https://img.shields.io/badge/slack-join-orange.svg)](https://join.slack.com/t/rebing-graphql/shared_invite/enQtNTE5NjQzNDI5MzQ4LTdhNjk0ZGY1N2U1YjE4MGVlYmM2YTc2YjQ0MmIwODY5MWMwZWIwYmY1MWY4NTZjY2Q5MzdmM2Q3NTEyNDYzZjc)
 
-Use Facebook's GraphQL with PHP 7.4+ on Laravel 8.0+. It is based on the [PHP port of GraphQL reference implementation](https://github.com/webonyx/graphql-php). You can find more information about GraphQL in the [GraphQL Introduction](https://reactjs.org/blog/2015/05/01/graphql-introduction.html) on the [React](https://reactjs.org/) blog or you can read the [GraphQL specifications](https://spec.graphql.org/).
+Use Facebook's GraphQL with PHP 8.0+ on Laravel 9.0+. It is based on the [PHP port of GraphQL reference implementation](https://github.com/webonyx/graphql-php). You can find more information about GraphQL in the [GraphQL Introduction](https://reactjs.org/blog/2015/05/01/graphql-introduction.html) on the [React](https://reactjs.org/) blog or you can read the [GraphQL specifications](https://spec.graphql.org/).
 
 * Allows creating **queries** and **mutations** as request endpoints
 * Supports multiple schemas
@@ -33,7 +33,7 @@ It offers following features and improvements over the original package by
 
 ### Dependencies:
 
-* [Laravel 6.0+](https://github.com/laravel/laravel)
+* [Laravel 9.0+](https://github.com/laravel/laravel)
 * [GraphQL PHP](https://github.com/webonyx/graphql-php)
 
 
@@ -124,6 +124,8 @@ config/graphql.php
     - [Migrating from Folklore](#migrating-from-folklore)
   - [Performance considerations](#performance-considerations)
     - [Wrap Types](#wrap-types)
+  - [Known Limitations](#known-limitations)
+    - [SelectFields related](#selectfields-related)
   - [GraphQL testing clients](#graphql-testing-clients)
 
 ### Concepts
@@ -2796,6 +2798,12 @@ public function resolve($root, array $args)
     ];
 }
 ```
+
+## Known limitations
+
+### SelectFields related
+- Resolving fields via aliases will only resolve them once, even if the fields
+  have different arguments ([Issue](https://github.com/rebing/graphql-laravel/issues/604)).
 
 ## GraphQL testing clients
  - [Firecamp](https://firecamp.io/graphql)
