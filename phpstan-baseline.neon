@@ -6,7 +6,17 @@ parameters:
 			path: src/GraphQL.php
 
 		-
+			message: "#^Cannot access offset 1 on iterable\\<\\(int\\|string\\), string\\>\\|null\\.$#"
+			count: 2
+			path: src/GraphQL.php
+
+		-
 			message: "#^Instanceof between Error and Error will always evaluate to true\\.$#"
+			count: 1
+			path: src/GraphQL.php
+
+		-
+			message: "#^Method Rebing\\\\GraphQL\\\\GraphQL\\:\\:getGlobalResolverMiddlewares\\(\\) should return list\\<class\\-string\\|object\\> but returns array\\.$#"
 			count: 1
 			path: src/GraphQL.php
 
@@ -16,12 +26,12 @@ parameters:
 			path: src/GraphQL.php
 
 		-
-			message: "#^Parameter \\#1 \\$config of class GraphQL\\\\Type\\\\Schema constructor expects array\\{query\\?\\: \\(callable\\(\\)\\: \\(GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null\\)\\)\\|GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null, mutation\\?\\: \\(callable\\(\\)\\: \\(GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null\\)\\)\\|GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null, subscription\\?\\: \\(callable\\(\\)\\: \\(GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null\\)\\)\\|GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null, types\\?\\: \\(callable\\(\\)\\: iterable\\<GraphQL\\\\Type\\\\Definition\\\\NamedType&GraphQL\\\\Type\\\\Definition\\\\Type\\>\\)\\|\\(callable\\(\\)\\: iterable\\<callable\\(\\)\\: GraphQL\\\\Type\\\\Definition\\\\Type&GraphQL\\\\Type\\\\Definition\\\\NamedType\\>\\)\\|iterable\\<\\(callable\\(\\)\\: GraphQL\\\\Type\\\\Definition\\\\Type&GraphQL\\\\Type\\\\Definition\\\\NamedType\\)\\|\\(GraphQL\\\\Type\\\\Definition\\\\NamedType&GraphQL\\\\Type\\\\Definition\\\\Type\\)\\>\\|null, directives\\?\\: array\\<GraphQL\\\\Type\\\\Definition\\\\Directive\\>\\|null, typeLoader\\?\\: \\(callable\\(string\\)\\: \\(\\(GraphQL\\\\Type\\\\Definition\\\\NamedType&GraphQL\\\\Type\\\\Definition\\\\Type\\)\\|null\\)\\)\\|null, assumeValid\\?\\: bool\\|null, astNode\\?\\: GraphQL\\\\Language\\\\AST\\\\SchemaDefinitionNode\\|null, \\.\\.\\.\\}\\|GraphQL\\\\Type\\\\SchemaConfig, array\\{query\\: GraphQL\\\\Type\\\\Definition\\\\Type, mutation\\: GraphQL\\\\Type\\\\Definition\\\\Type\\|null, subscription\\: GraphQL\\\\Type\\\\Definition\\\\Type\\|null, directives\\: array\\<int\\|string, mixed\\>, types\\: Closure\\(\\)\\: list\\<GraphQL\\\\Type\\\\Definition\\\\Type\\>, typeLoader\\: Closure\\(mixed\\)\\: \\(GraphQL\\\\Type\\\\Definition\\\\Type\\|null\\)\\} given\\.$#"
+			message: "#^Parameter \\#1 \\$config of class GraphQL\\\\Type\\\\Schema constructor expects array\\{query\\?\\: \\(callable\\(\\)\\: \\(GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null\\)\\)\\|GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null, mutation\\?\\: \\(callable\\(\\)\\: \\(GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null\\)\\)\\|GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null, subscription\\?\\: \\(callable\\(\\)\\: \\(GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null\\)\\)\\|GraphQL\\\\Type\\\\Definition\\\\ObjectType\\|null, types\\?\\: \\(callable\\(\\)\\: iterable\\<GraphQL\\\\Type\\\\Definition\\\\NamedType&GraphQL\\\\Type\\\\Definition\\\\Type\\>\\)\\|\\(callable\\(\\)\\: iterable\\<callable\\(\\)\\: GraphQL\\\\Type\\\\Definition\\\\Type&GraphQL\\\\Type\\\\Definition\\\\NamedType\\>\\)\\|iterable\\<\\(callable\\(\\)\\: GraphQL\\\\Type\\\\Definition\\\\Type&GraphQL\\\\Type\\\\Definition\\\\NamedType\\)\\|\\(GraphQL\\\\Type\\\\Definition\\\\NamedType&GraphQL\\\\Type\\\\Definition\\\\Type\\)\\>\\|null, directives\\?\\: array\\<GraphQL\\\\Type\\\\Definition\\\\Directive\\>\\|null, typeLoader\\?\\: \\(callable\\(string\\)\\: \\(\\(GraphQL\\\\Type\\\\Definition\\\\NamedType&GraphQL\\\\Type\\\\Definition\\\\Type\\)\\|null\\)\\)\\|null, assumeValid\\?\\: bool\\|null, astNode\\?\\: GraphQL\\\\Language\\\\AST\\\\SchemaDefinitionNode\\|null, \\.\\.\\.\\}\\|GraphQL\\\\Type\\\\SchemaConfig, array\\{query\\: GraphQL\\\\Type\\\\Definition\\\\Type, mutation\\: GraphQL\\\\Type\\\\Definition\\\\Type\\|null, subscription\\: GraphQL\\\\Type\\\\Definition\\\\Type\\|null, directives\\: array, types\\: Closure\\(\\)\\: list\\<GraphQL\\\\Type\\\\Definition\\\\Type\\>, typeLoader\\: Closure\\(mixed\\)\\: \\(GraphQL\\\\Type\\\\Definition\\\\Type\\|null\\)\\} given\\.$#"
 			count: 1
 			path: src/GraphQL.php
 
 		-
-			message: "#^Property GraphQL\\\\Type\\\\Definition\\\\ObjectType\\:\\:\\$config \\(array\\{name\\?\\: string\\|null, description\\?\\: string\\|null, resolveField\\?\\: \\(callable\\(mixed, array\\<string, mixed\\>, mixed, GraphQL\\\\Type\\\\Definition\\\\ResolveInfo\\)\\: mixed\\)\\|null, fields\\: \\(callable\\(\\)\\: iterable\\)\\|iterable, interfaces\\?\\: \\(callable\\(\\)\\: iterable\\<callable\\(\\)\\: GraphQL\\\\Type\\\\Definition\\\\InterfaceType\\|GraphQL\\\\Type\\\\Definition\\\\InterfaceType\\>\\)\\|iterable\\<\\(callable\\(\\)\\: GraphQL\\\\Type\\\\Definition\\\\InterfaceType\\)\\|GraphQL\\\\Type\\\\Definition\\\\InterfaceType\\>, isTypeOf\\?\\: \\(callable\\(mixed, mixed, GraphQL\\\\Type\\\\Definition\\\\ResolveInfo\\)\\: \\(bool\\|GraphQL\\\\Deferred\\|null\\)\\)\\|null, astNode\\?\\: GraphQL\\\\Language\\\\AST\\\\ObjectTypeDefinitionNode\\|null, extensionASTNodes\\?\\: array\\<int, GraphQL\\\\Language\\\\AST\\\\ObjectTypeExtensionNode\\>\\|null\\}\\) does not accept non\\-empty\\-array\\<string, \\(callable\\(mixed, array\\<string, mixed\\>, mixed, GraphQL\\\\Type\\\\Definition\\\\ResolveInfo\\)\\: mixed\\)\\|\\(callable\\(mixed, mixed, GraphQL\\\\Type\\\\Definition\\\\ResolveInfo\\)\\: \\(bool\\|GraphQL\\\\Deferred\\|null\\)\\)\\|GraphQL\\\\Language\\\\AST\\\\ObjectTypeDefinitionNode\\|iterable\\|string\\|null\\>\\.$#"
+			message: "#^Property GraphQL\\\\Type\\\\Definition\\\\ObjectType\\:\\:\\$config \\(array\\{name\\?\\: string\\|null, description\\?\\: string\\|null, resolveField\\?\\: \\(callable\\(mixed, array\\<string, mixed\\>, mixed, GraphQL\\\\Type\\\\Definition\\\\ResolveInfo\\)\\: mixed\\)\\|null, fields\\: \\(callable\\(\\)\\: iterable\\)\\|iterable, interfaces\\?\\: \\(callable\\(\\)\\: iterable\\<callable\\(\\)\\: GraphQL\\\\Type\\\\Definition\\\\InterfaceType\\|GraphQL\\\\Type\\\\Definition\\\\InterfaceType\\>\\)\\|iterable\\<\\(callable\\(\\)\\: GraphQL\\\\Type\\\\Definition\\\\InterfaceType\\)\\|GraphQL\\\\Type\\\\Definition\\\\InterfaceType\\>, isTypeOf\\?\\: \\(callable\\(mixed, mixed, GraphQL\\\\Type\\\\Definition\\\\ResolveInfo\\)\\: \\(bool\\|GraphQL\\\\Deferred\\|null\\)\\)\\|null, astNode\\?\\: GraphQL\\\\Language\\\\AST\\\\ObjectTypeDefinitionNode\\|null, extensionASTNodes\\?\\: array\\<int, GraphQL\\\\Language\\\\AST\\\\ObjectTypeExtensionNode\\>\\|null\\}\\) does not accept non\\-empty\\-array\\<string, \\(callable\\(mixed, array\\<string, mixed\\>, mixed, GraphQL\\\\Type\\\\Definition\\\\ResolveInfo\\)\\: mixed\\)\\|\\(callable\\(\\)\\: iterable\\)\\|\\(callable\\(mixed, mixed, GraphQL\\\\Type\\\\Definition\\\\ResolveInfo\\)\\: \\(bool\\|GraphQL\\\\Deferred\\|null\\)\\)\\|GraphQL\\\\Language\\\\AST\\\\ObjectTypeDefinitionNode\\|iterable\\|string\\|null\\>\\.$#"
 			count: 1
 			path: src/GraphQL.php
 
@@ -126,6 +136,11 @@ parameters:
 			path: src/Support/Field.php
 
 		-
+			message: "#^Method Rebing\\\\GraphQL\\\\Support\\\\Field\\:\\:appendGlobalMiddlewares\\(\\) should return list\\<class\\-string\\|object\\> but returns array\\.$#"
+			count: 1
+			path: src/Support/Field.php
+
+		-
 			message: "#^Method Rebing\\\\GraphQL\\\\Support\\\\Field\\:\\:attributes\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Support/Field.php
@@ -216,7 +231,7 @@ parameters:
 			path: src/Support/PaginationType.php
 
 		-
-			message: "#^Parameter \\#1 \\$underlyingType of method Rebing\\\\GraphQL\\\\Support\\\\PaginationType\\:\\:getPaginationFields\\(\\) expects GraphQL\\\\Type\\\\Definition\\\\ObjectType, GraphQL\\\\Type\\\\Definition\\\\Type given\\.$#"
+			message: "#^Parameter \\#1 \\$type of static method GraphQL\\\\Type\\\\Definition\\\\Type\\:\\:nonNull\\(\\) expects \\(callable\\(\\)\\: \\(GraphQL\\\\Type\\\\Definition\\\\NullableType&GraphQL\\\\Type\\\\Definition\\\\Type\\)\\)\\|\\(GraphQL\\\\Type\\\\Definition\\\\NullableType&GraphQL\\\\Type\\\\Definition\\\\Type\\), GraphQL\\\\Type\\\\Definition\\\\Type given\\.$#"
 			count: 1
 			path: src/Support/PaginationType.php
 
@@ -356,17 +371,12 @@ parameters:
 			path: src/Support/SelectFields.php
 
 		-
-			message: "#^Parameter \\#1 \\$underlyingType of method Rebing\\\\GraphQL\\\\Support\\\\SimplePaginationType\\:\\:getPaginationFields\\(\\) expects GraphQL\\\\Type\\\\Definition\\\\ObjectType, GraphQL\\\\Type\\\\Definition\\\\Type given\\.$#"
+			message: "#^Parameter \\#1 \\$type of static method GraphQL\\\\Type\\\\Definition\\\\Type\\:\\:nonNull\\(\\) expects \\(callable\\(\\)\\: \\(GraphQL\\\\Type\\\\Definition\\\\NullableType&GraphQL\\\\Type\\\\Definition\\\\Type\\)\\)\\|\\(GraphQL\\\\Type\\\\Definition\\\\NullableType&GraphQL\\\\Type\\\\Definition\\\\Type\\), GraphQL\\\\Type\\\\Definition\\\\Type given\\.$#"
 			count: 1
 			path: src/Support/SimplePaginationType.php
 
 		-
 			message: "#^Method Rebing\\\\GraphQL\\\\Support\\\\Type\\:\\:getFieldResolver\\(\\) has parameter \\$field with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Support/Type.php
-
-		-
-			message: "#^Method Rebing\\\\GraphQL\\\\Support\\\\Type\\:\\:getFields\\(\\) should return array\\<string, mixed\\> but returns array\\<int\\|string, mixed\\>\\.$#"
 			count: 1
 			path: src/Support/Type.php
 
@@ -1414,11 +1424,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$visitor of static method GraphQL\\\\Language\\\\Visitor\\:\\:visit\\(\\) expects array\\<string, array\\<string, callable\\(GraphQL\\\\Language\\\\AST\\\\Node\\)\\: \\(GraphQL\\\\Language\\\\VisitorOperation\\|void\\|false\\|null\\)\\>\\|\\(callable\\(GraphQL\\\\Language\\\\AST\\\\Node\\)\\: \\(GraphQL\\\\Language\\\\VisitorOperation\\|void\\|false\\|null\\)\\)\\>, array\\{VariableDefinition\\: Closure\\(mixed, mixed, mixed, mixed, mixed\\)\\: mixed\\} given\\.$#"
 			count: 1
 			path: tests/Unit/ExecutionMiddlewareTest/ChangeQueryArgTypeMiddleware.php
-
-		-
-			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\) with non\\-empty\\-array will always evaluate to true\\.$#"
-			count: 1
-			path: tests/Unit/GraphQLTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$abstract of function app expects string\\|null, object\\|string given\\.$#"
